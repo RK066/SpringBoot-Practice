@@ -2,6 +2,7 @@ package com.practice.internship;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,5 +31,10 @@ public class infoController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @DeleteMapping("/allinfo/del/{id}")
+    public void delStudent(@PathVariable String id){
+        infoService.delStudent(id);
     }
 }

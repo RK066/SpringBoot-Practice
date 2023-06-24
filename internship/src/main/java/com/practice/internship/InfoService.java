@@ -27,4 +27,8 @@ public class InfoService {
         arrayList.add(body);
         list=arrayList;
     }
+
+    public void delStudent(String id) {
+        arrayList.removeIf(t -> t.getId().equals(id));
+    }
 }
