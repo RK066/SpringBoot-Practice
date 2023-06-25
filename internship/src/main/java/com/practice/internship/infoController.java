@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,12 @@ public class infoController {
     }
 
     @DeleteMapping("/allinfo/del/{id}")
-    public void delStudent(@PathVariable String id){
-        infoService.delStudent(id);
+    public Students delStudent(@PathVariable String id){
+        return infoService.delStudent(id);
+    }
+
+    @PutMapping("/allinfo/update")
+    public Students uStudent(@RequestBody Students s){
+        return infoService.uStudent(s);
     }
 }
