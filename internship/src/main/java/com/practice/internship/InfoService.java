@@ -34,7 +34,7 @@ public class InfoService {
 
     public Students uStudent(Students s) {
         Students temp=arrayList.stream().filter(t -> t.getId().equals(s.getId())).findFirst().get();
-        arrayList.remove(temp);
+        arrayList.set(arrayList.indexOf(temp), s);
         return temp;
     }
 }
