@@ -1,0 +1,21 @@
+<store>
+  <name>SuperMart</name>
+  <location>123 Main Street</location>
+  <items>
+    <item>
+      <name>Apples</name>
+      <price>0.99</price>
+      <quantity>10</quantity>
+    </item>
+    <item>
+      <name>Bananas</name>
+      <price>0.49</price>
+      <quantity>5</quantity>
+    </item>
+    <item>
+      <name>Oranges</name>
+      <price>0.79</price>
+      <quantity>7</quantity>
+    </item>
+  </items>
+</store>

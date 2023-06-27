@@ -1,0 +1,10 @@
+<student>
+  <name>John Doe</name>
+  <age>20</age>
+  <major>Computer Science</major>
+  <courses>
+    <course>Programming Fundamentals</course>
+    <course>Data Structures</course>
+    <course>Database Management</course>
+  </courses>
+</student>
