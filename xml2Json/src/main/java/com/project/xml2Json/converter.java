@@ -21,12 +21,12 @@ public class converter {
     @Autowired
     private dataRepo dRepo;
 
-    private String path="C:\\Users\\LENOVO\\Desktop\\Spring boot practice\\Files";
+    // private String path="C:\\Users\\LENOVO\\Desktop\\Spring boot practice\\Files";
 
     @RequestMapping("/ex/conv")
     public void convert(){
         try{
-            Stream<Path> stream=Files.list(Paths.get(path));
+            Stream<Path> stream=Files.list(Paths.get(".\\Files\\"));
             stream.filter(file->!Files.isDirectory(file)).map(Path::getFileName).map(Path::toString).forEach(t -> xtoj(t));
             stream.close();
         } catch(Exception e){
@@ -37,7 +37,7 @@ public class converter {
 
     public void xtoj(String f){
         try{
-            File file=new File(path+'\\'+f);
+            File file=new File(".\\Files\\"+f);
             String s=new String(Files.readAllBytes(Paths.get(file.toString())));
             JsonNode node =new XmlMapper().readTree(s.getBytes());
             String d= new ObjectMapper().writeValueAsString(node);
