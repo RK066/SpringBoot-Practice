@@ -1,0 +1,6 @@
+<employee>
+  <id>12345</id>
+  <name>Alice Smith</name>
+  <department>Human Resources</department>
+  <salary>5000</salary>
+</employee>

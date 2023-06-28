@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recipe>
+  <title>Spaghetti Bolognese</title>
+  <ingredients>
+    <ingredient>Ground beef</ingredient>
+    <ingredient>Onion</ingredient>
+    <ingredient>Garlic</ingredient>
+    <ingredient>Tomato sauce</ingredient>
+    <ingredient>Spaghetti</ingredient>
+    <ingredient>Olive oil</ingredient>
+  </ingredients>
+  <instructions>
+    <step>Heat olive oil in a pan.</step>
+    <step>Add chopped onion and minced garlic, sauté until golden.</step>
+    <step>Add ground beef, cook until browned.</step>
+    <step>Pour tomato sauce, simmer for 20 minutes.</step>
+    <step>Cook spaghetti in boiling water until al dente.</step>
+    <step>Serve spaghetti topped with Bolognese sauce.</step>
+  </instructions>
+</recipe>

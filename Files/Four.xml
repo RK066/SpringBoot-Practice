@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer>
+  <name>John Doe</name>
+  <address>
+    <street>123 Main St</street>
+    <city>Anytown</city>
+    <state>California</state>
+    <zipcode>12345</zipcode>
+  </address>
+  <email>john.doe@example.com</email>
+  <phone>555-123-4567</phone>
+</customer>
