@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 import java.util.stream.Stream;
 
@@ -28,7 +29,7 @@ public class converter {
     public void convert(){
         try{
             Stream<Path> stream=Files.list(Paths.get(".\\Files\\"));
-            stream.filter(file->!Files.isDirectory(file)).map(Path::getFileName).map(Path::toString).forEach(t -> xtoj(t));
+            stream.filter(file->!Files.isDirectory(file)).map(Path::getFileName).map(Path::toString).forEach(t -> xtoj(t.replace(".xml", "")));
             stream.close();
         } catch(Exception e){
             e.printStackTrace();
@@ -54,7 +55,7 @@ public class converter {
 
     @DeleteMapping("/ex/del/{name}")
     public void delData(@PathVariable String name){
-        dRepo.deleteById(dRepo.findByName(name+".xml").getSrNo());
+        dRepo.deleteById(dRepo.findByName(name).getSrNo());
     }
 
     @DeleteMapping("/ex/del")
@@ -64,13 +65,13 @@ public class converter {
 
     public void xtoj(String f){
         try{
-            File file=new File(".\\Files\\"+f);
+            File file=new File(".\\Files\\"+f+".xml");
             String s=new String(Files.readAllBytes(Paths.get(file.toString())));
             JsonNode node =new XmlMapper().readTree(s.getBytes());
             String d= new ObjectMapper().writeValueAsString(node);
             data a;
-            if(dRepo.existsByName(f))   {a=new data(dRepo.findByName(f).getSrNo(), f, d);}
-            else                        {a=new data(UUID.randomUUID().toString(), f, d);}
+            if(dRepo.existsByName(f))   {a=new data(dRepo.findByName(f).getSrNo(), f, d,dRepo.findByName(f).getCreating_Date_Time());}
+            else                        {a=new data(UUID.randomUUID().toString(), f, d,OffsetDateTime.now());}
 
             dRepo.save(a);
         }

@@ -1,5 +1,6 @@
 package com.project.xml2Json;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -14,18 +15,20 @@ public class data {
     private String SrNo;
     private String name;
     private String d;
+    private OffsetDateTime creating_Date_Time;
 
-    
 
     public data() {
         SrNo=UUID.randomUUID().toString();
         name="null";
         d="null";
+        creating_Date_Time=OffsetDateTime.now();
     }
-    public data(String srNo, String name, String d) {
+    public data(String srNo, String name, String d,OffsetDateTime cOffsetDateTime) {
         SrNo = srNo;
         this.name = name;
         this.d = d;
+        this.creating_Date_Time=cOffsetDateTime;
     }
     public String getSrNo() {
         return SrNo;
@@ -45,6 +48,11 @@ public class data {
     public void setD(String d) {
         this.d = d;
     }
-
+    public OffsetDateTime getCreating_Date_Time() {
+        return creating_Date_Time;
+    }
+    public void setCreating_Date_Time(OffsetDateTime creating_Date_Time) {
+        this.creating_Date_Time = creating_Date_Time;
+    }
     
 }
