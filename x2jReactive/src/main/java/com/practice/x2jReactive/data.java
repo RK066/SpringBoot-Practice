@@ -6,10 +6,6 @@ import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-// import jakarta.persistence.Entity;
-// import jakarta.persistence.Id;
-// import jakarta.persistence.Table;
-
 @Table(name = "x2j", schema = "data")
 public class data {
     
@@ -17,20 +13,20 @@ public class data {
     private String SrNo;
     private String name;
     private String d;
-    private OffsetDateTime creating_Date_Time;
+    private OffsetDateTime creatingDateTime;
 
 
     public data() {
         SrNo=UUID.randomUUID().toString();
         name="null";
         d="null";
-        creating_Date_Time=OffsetDateTime.now();
+        creatingDateTime=OffsetDateTime.now();
     }
     public data(String srNo, String name, String d,OffsetDateTime cOffsetDateTime) {
         SrNo = srNo;
         this.name = name;
         this.d = d;
-        this.creating_Date_Time=cOffsetDateTime;
+        this.creatingDateTime=cOffsetDateTime;
     }
     public String getSrNo() {
         return SrNo;
@@ -51,10 +47,10 @@ public class data {
         this.d = d;
     }
     public OffsetDateTime getCreating_Date_Time() {
-        return creating_Date_Time;
+        return creatingDateTime;
     }
     public void setCreating_Date_Time(OffsetDateTime creating_Date_Time) {
-        this.creating_Date_Time = creating_Date_Time;
+        this.creatingDateTime = creating_Date_Time;
     }
     
 }
