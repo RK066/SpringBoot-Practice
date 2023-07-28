@@ -1,5 +1,6 @@
 package com.practice.x2jReactive;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -13,16 +14,16 @@ public class data {
     private String SrNo;
     private String name;
     private String d;
-    private OffsetDateTime creatingDateTime;
+    private LocalDateTime creatingDateTime;
 
 
     public data() {
         SrNo=UUID.randomUUID().toString();
         name="null";
         d="null";
-        creatingDateTime=OffsetDateTime.now();
+        creatingDateTime=LocalDateTime.now();
     }
-    public data(String srNo, String name, String d,OffsetDateTime cOffsetDateTime) {
+    public data(String srNo, String name, String d,LocalDateTime cOffsetDateTime) {
         SrNo = srNo;
         this.name = name;
         this.d = d;
@@ -46,10 +47,10 @@ public class data {
     public void setD(String d) {
         this.d = d;
     }
-    public OffsetDateTime getCreating_Date_Time() {
+    public LocalDateTime getCreating_Date_Time() {
         return creatingDateTime;
     }
-    public void setCreating_Date_Time(OffsetDateTime creating_Date_Time) {
+    public void setCreating_Date_Time(LocalDateTime creating_Date_Time) {
         this.creatingDateTime = creating_Date_Time;
     }
     

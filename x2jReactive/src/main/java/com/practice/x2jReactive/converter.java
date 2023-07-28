@@ -4,10 +4,9 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.UUID;
 import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,8 +72,9 @@ public class converter {
             JsonNode node =new XmlMapper().readTree(s.getBytes());
             String d= new ObjectMapper().writeValueAsString(node);
             data a;
+            System.out.println(f);
             if(dRepo.existsByName(f).block().booleanValue())   {dRepo.findByName(f).subscribe(t -> sdata(new data(t.getSrNo(), f, d, t.getCreating_Date_Time())));}
-            else                                {a=new data(UUID.randomUUID().toString(), f, d,OffsetDateTime.now());sdata(a);}
+            else                                {a=new data(UUID.randomUUID().toString(), f, d,LocalDateTime.now());sdata(a);}
             
             // a=new data(dRepo.findByName(f).getSrNo(), f, d,dRepo.findByName(f).getCreating_Date_Time());
         }
@@ -85,7 +85,7 @@ public class converter {
 
     public void sdata(data d){
         try{
-        var a= dRepo.save(d);
+            dRepo.save(d);
         } catch(Exception e){
             e.printStackTrace();
         }
